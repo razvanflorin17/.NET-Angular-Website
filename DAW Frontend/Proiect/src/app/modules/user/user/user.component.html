@@ -1,0 +1,98 @@
+<div>
+    <p class = "header">
+    Bine ati venit{{loggedUser.email}}!
+    </p>
+</div>
+
+<div class = "container">
+    <h1 class = 'title'>
+      {{'PCs' | marks}}
+    </h1>
+    <table mat-table [dataSource]="PCs" class="mat-elevation-z8 demo-table table" appHover>
+
+        <ng-container matColumnDef="id" class = "id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.$id - 1}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="tip" class = "tip">
+          <th mat-header-cell *matHeaderCellDef> Tip </th>
+          <td mat-cell *matCellDef="let element"> {{element.tip}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="pret" class = "pret">
+          <th mat-header-cell *matHeaderCellDef> Pret </th>
+          <td mat-cell *matCellDef="let element"> {{element.pret}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="pc" class = "pc">
+          <th mat-header-cell *matHeaderCellDef> View PC </th>
+          <td mat-cell *matCellDef="let element" (click) = "goToPC(element.pret)"> 
+            <mat-icon>
+              desktop_windows
+            </mat-icon>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete" class = "delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element" (click) = "deletePC(element.id)"> 
+            <mat-icon>
+              delete
+            </mat-icon>
+          </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="edit" class = "edit">
+          <th mat-header-cell *matHeaderCellDef> Edit </th>
+          <td mat-cell *matCellDef="let element" (click) = "editPC()"> 
+            <mat-icon>
+              edit
+            </mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <button mat-raised-button (click) = "addNewPC()" class = "add-button">
+        Add PC
+      </button>
+
+      <h1 class = 'title2'>
+        {{'Componente' | marks}}
+      </h1>
+      <table mat-table [dataSource]="Componente" class="mat-elevation-z8 demo-table table" appHover>
+          
+          <ng-container matColumnDef="id" class = "id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.$id - 1}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="nume" class = "nume">
+            <th mat-header-cell *matHeaderCellDef> Nume </th>
+            <td mat-cell *matCellDef="let element"> {{element.nume}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="pret" class = "pret">
+            <th mat-header-cell *matHeaderCellDef> Pret </th>
+            <td mat-cell *matCellDef="let element"> {{element.pret}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="detalii" class = "detalii">
+            <th mat-header-cell *matHeaderCellDef> Detalii </th>
+            <td mat-cell *matCellDef="let element"> {{element.detalii}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+        </table>
+
+      <button mat-raised-button (click) = logout() class = "buton">
+        Logout
+      </button>
+</div>
+
+
+

@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 class="title">
+      Edit PC
+    </h1>
+  
+    <form [formGroup]="pcForm" class="form">
+      <mat-form-field appearance="outline">
+        <mat-label>Id</mat-label>
+        <input matInput placeholder="Id" formControlName="id" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Tip</mat-label>
+        <input matInput placeholder="Tip" formControlName="tip" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Pret</mat-label>
+        <input matInput placeholder="Pret" formControlName="pret" />
+      </mat-form-field>
+    </form>
+  
+    <button mat-raised-button (click)="editPC()">
+      Save
+    </button>
+  </div>
